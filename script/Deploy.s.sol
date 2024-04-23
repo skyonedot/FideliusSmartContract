@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import {stdJson} from "forge-std/StdJson.sol";
 
 import {Script} from "forge-std/Script.sol";
-import {Test} from "forge-std/Test.sol";
+// import {Test} from "forge-std/Test.sol";
 
 import {THAddress} from "script/utils/THAddress.sol";
 
@@ -50,7 +50,7 @@ import {NaiveOwner} from "contracts/test/NaiveOwner.sol";
 import {TestQuickSort} from "contracts/test/TestQuickSort.sol";
 import {TestERC20} from "contracts/test/TestERC20.sol";
 
-contract Deploy is Script, Test, THAddress {
+contract Deploy is Script, THAddress {
     using stdJson for string;
 
     address public owner = 0xf4267391072B27D76Ed8f2A9655BCf5246013F2d;

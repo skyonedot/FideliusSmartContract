@@ -49,7 +49,13 @@ contract THTRDispatcherTest is Test, DeployHelper {
         vm.prank(account1.addr);
         usdt.approve(account1.addr, 100000000000);
 
+        usdt.approve(address(tr), 60000000);
         tr.raise(60000000);
+
+        deal(address(usdt), account1.addr, 15000000);
+        vm.prank(account1.addr);
+        usdt.approve(address(tr), 15000000);
+
         vm.prank(account1.addr);
         tr.raise(15000000);
 
@@ -82,6 +88,7 @@ contract THTRDispatcherTest is Test, DeployHelper {
         console2.log(cb);
         while (cb < th_period.start_block()) {
             th_period.get_current_period();
+            cb += 1;
         }
         // th_mint.mint();
         // th_dis.claim({from:accounts[0]});
